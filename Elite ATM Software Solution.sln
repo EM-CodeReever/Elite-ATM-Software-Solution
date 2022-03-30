@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elite ATM Software", "Elite ATM Software\Elite ATM Software.csproj", "{457BC721-48D5-4581-8FAE-FD1AB5CFA001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elite ATM Class Library", "Elite ATM Class Library\Elite ATM Class Library.csproj", "{E572BA69-0A00-4724-B379-62E35C8DA3D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{457BC721-48D5-4581-8FAE-FD1AB5CFA001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457BC721-48D5-4581-8FAE-FD1AB5CFA001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457BC721-48D5-4581-8FAE-FD1AB5CFA001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457BC721-48D5-4581-8FAE-FD1AB5CFA001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E572BA69-0A00-4724-B379-62E35C8DA3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E572BA69-0A00-4724-B379-62E35C8DA3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E572BA69-0A00-4724-B379-62E35C8DA3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E572BA69-0A00-4724-B379-62E35C8DA3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A568D71-755F-4C2B-9474-EF5ECB4B04BA}
+	EndGlobalSection
+EndGlobal
