@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Elite_ATM_Class_Library;
-
 namespace Elite_ATM_Software
 {
     internal static class Program
