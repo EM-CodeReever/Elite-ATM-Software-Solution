@@ -14,12 +14,9 @@ namespace Elite_ATM_Software
         [STAThread]
         static void Main()
         {
-            User user = new User();
-            user.FirstName = "Elliot";
-            user.LastName = "Morrison";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmMainWindow());
         }
     }
 }
