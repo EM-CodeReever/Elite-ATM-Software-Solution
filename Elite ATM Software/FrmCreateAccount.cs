@@ -61,13 +61,16 @@ namespace Elite_ATM_Software
                 }
                 SqlConnection connection = new SqlConnection(Utilities.GetConnectionString());
                 connection.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO Accounts VALUES "
-                    + "('" + user.Id + "', '" + user.UserAccount.GetType().Name + "', '" + 0.0 + "', '" + user.UserAccount.Currency + "')", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO [Accounts] (Type, Balance, Currency, UserID) VALUES ('{user.UserAccount.GetType().Name}',{0.0},'{user.UserAccount.Currency}','{user.Id}')", connection);
                 int i = command.ExecuteNonQuery();
                 if (i != 0)
                 {
                     MessageBox.Show("Account Created Successfully!");
                     connection.Close();
+                    FrmHome frmHome = new FrmHome(user);
+                    frmHome.MdiParent = this.MdiParent;
+                    frmHome.Show();
+                    this.Close();
                 }
                 else
                 {

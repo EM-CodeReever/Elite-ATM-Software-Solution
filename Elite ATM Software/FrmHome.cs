@@ -58,7 +58,18 @@ namespace Elite_ATM_Software
         private void btnOpenAccount_Click(object sender, EventArgs e)
         {
             FrmCreateAccount frmCreateAccount = new FrmCreateAccount(user);
+            frmCreateAccount.MdiParent = this.MdiParent;
             frmCreateAccount.Show();
+            this.Close();
+            
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmlogin = new FrmLogin();
+            frmlogin.MdiParent = this.MdiParent;
+            frmlogin.Show();
+            this.Close();
         }
     }
 }

@@ -39,10 +39,12 @@ namespace Elite_ATM_Software
                 user.FirstName = reader["Firstname"].ToString();
                 user.LastName = reader["Lastname"].ToString();
                 user.Email = reader["Email"].ToString();
-                FrmHome home = new FrmHome(user);
-                home.Show();
+                
             }
-
+                FrmHome home = new FrmHome(user);
+                home.MdiParent = this.MdiParent;
+                home.Show();
+                this.Close();
 
             }
             catch (Exception ex)
@@ -55,7 +57,9 @@ namespace Elite_ATM_Software
         private void lnkCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmSignUp signUp = new FrmSignUp();
+            signUp.MdiParent = this.MdiParent;
             signUp.Show();
+            this.Close();
         }
     }
 }

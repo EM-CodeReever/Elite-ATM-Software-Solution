@@ -64,6 +64,7 @@
             this.btnLogOut.TabIndex = 0;
             this.btnLogOut.Text = "LogOut";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // pnlAccountInfo
             // 
@@ -204,7 +205,7 @@
             this.pnlSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidePanel.Location = new System.Drawing.Point(0, 0);
             this.pnlSidePanel.Name = "pnlSidePanel";
-            this.pnlSidePanel.Size = new System.Drawing.Size(184, 450);
+            this.pnlSidePanel.Size = new System.Drawing.Size(184, 460);
             this.pnlSidePanel.TabIndex = 2;
             // 
             // btnUserProfile
@@ -282,27 +283,30 @@
             // 
             // txtUserID
             // 
+            this.txtUserID.BackColor = System.Drawing.Color.White;
             this.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserID.Location = new System.Drawing.Point(688, 435);
+            this.txtUserID.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserID.Location = new System.Drawing.Point(754, 439);
             this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(100, 14);
+            this.txtUserID.ReadOnly = true;
+            this.txtUserID.Size = new System.Drawing.Size(34, 15);
             this.txtUserID.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(576, 437);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(632, 441);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Logged In with User ID";
+            this.label1.Text = "Logged In with UserID:";
             // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 460);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.btnOpenAccount);

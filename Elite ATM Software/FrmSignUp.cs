@@ -46,16 +46,16 @@ namespace Elite_ATM_Software
             }
             SqlConnection connection = new SqlConnection(Utilities.GetConnectionString());
             connection.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Users (Firstname, Lastname, Email, Password) VALUES" + 
-                "('" + user.FirstName + "','" + user.LastName + "','" + user.Email + "','" + user.Password + "')",connection);
-
+            SqlCommand command = new SqlCommand($"INSERT INTO [Users] (FirstName, LastName, Email, Password) VALUES ('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password }')", connection);
             int i = command.ExecuteNonQuery();
             if (i != 0)
             {
-                SqlCommand getuserID = new SqlCommand();
-                SqlDataReader reader = command.ExecuteReader();
                 MessageBox.Show("User Created Successfully!");
                 connection.Close();
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.MdiParent = this.MdiParent;
+                frmLogin.Show();
+                this.Close();
             }
             else
             {
