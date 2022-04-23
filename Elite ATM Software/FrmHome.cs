@@ -13,21 +13,15 @@ using System.Data.SqlClient;
 namespace Elite_ATM_Software
 {
     public partial class FrmHome : Form
-    {
-        User user = new User();   
+    {  
         public FrmHome()
         {
             InitializeComponent();
-        }
-        public FrmHome(User u)
-        {
-            user = u;
-            InitializeComponent();
             SqlConnection connection = new SqlConnection(Utilities.GetConnectionString());
             connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Accounts WHERE UserID = '" + user.Id + "'",connection);
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Account] WHERE UserID = '" + UserTracker.currentUser.Id + "'",connection);
             SqlDataReader reader = sqlCommand.ExecuteReader();
-            txtUserID.Text = user.Id.ToString();
+            txtUserID.Text = UserTracker.currentUser.Id.ToString();
             if (!reader.Read())
             {
                 lblNoAccountOpen.Visible = true;
@@ -37,27 +31,27 @@ namespace Elite_ATM_Software
             {
                 if(reader["Type"].ToString() == "Savings")
                 {
-                    user.UserAccount = new Savings();
+                    UserTracker.currentUser.UserAccount = new Savings();
                 }else if(reader["Type"].ToString() == "Chequing")
                 {
-                    user.UserAccount = new Chequing();
+                    UserTracker.currentUser.UserAccount = new Chequing();
                 }else if(reader["Type"].ToString() == "Business")
                 {
-                    user.UserAccount = new Business();
+                    UserTracker.currentUser.UserAccount = new Business();
                 }
 
                 pnlAccountInfo.Visible = true;
-                user.UserAccount.GetBalanceAndCurrency(float.Parse(reader["Balance"].ToString()), reader["Currency"].ToString());
-                txtAccountHolder.Text = user.GetFullName();
-                txtAccountType.Text = user.UserAccount.GetType().Name;
-                txtCurrency.Text = user.UserAccount.Currency;
-                txtBalance.Text = "$" + user.UserAccount.Balance;
+                UserTracker.currentUser.UserAccount.GetBalanceAndCurrency(float.Parse(reader["Balance"].ToString()), reader["Currency"].ToString());
+                txtAccountHolder.Text = UserTracker.currentUser.GetFullName();
+                txtAccountType.Text = UserTracker.currentUser.UserAccount.GetType().Name;
+                txtCurrency.Text = UserTracker.currentUser.UserAccount.Currency;
+                txtBalance.Text = "$" + UserTracker.currentUser.UserAccount.Balance;
             }
         }
 
         private void btnOpenAccount_Click(object sender, EventArgs e)
         {
-            FrmCreateAccount frmCreateAccount = new FrmCreateAccount(user);
+            FrmCreateAccount frmCreateAccount = new FrmCreateAccount();
             frmCreateAccount.MdiParent = this.MdiParent;
             frmCreateAccount.Show();
             this.Close();
@@ -69,6 +63,22 @@ namespace Elite_ATM_Software
             FrmLogin frmlogin = new FrmLogin();
             frmlogin.MdiParent = this.MdiParent;
             frmlogin.Show();
+            this.Close();
+        }
+
+        private void btnWithdraw_Click(object sender, EventArgs e)
+        {
+            FrmWithdraw frmWithdraw = new FrmWithdraw();
+            frmWithdraw.Show();
+            frmWithdraw.MdiParent = this.MdiParent;
+            this.Close();
+        }
+
+        private void btnDeposit_Click(object sender, EventArgs e)
+        {
+            FrmDeposit frmDeposit = new FrmDeposit();
+            frmDeposit.Show();
+            frmDeposit.MdiParent = this.MdiParent;
             this.Close();
         }
     }

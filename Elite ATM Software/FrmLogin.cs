@@ -17,16 +17,16 @@ namespace Elite_ATM_Software
         public FrmLogin()
         {
             InitializeComponent();
+            UserTracker.currentUser = new User();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User user = new User();
             try
             {
                 SqlConnection connection = new SqlConnection(Utilities.GetConnectionString());
             connection.Open();
-            SqlCommand command = new SqlCommand("SELECT * FROM Users WHERE ID = '" + txtUserID.Text + "' OR Email = '" + txtEmail.Text + "'",connection);
+            SqlCommand command = new SqlCommand("SELECT * FROM [User] WHERE ID = '" + txtUserID.Text + "' OR Email = '" + txtEmail.Text + "'",connection);
             
             SqlDataReader sqlDataReader = command.ExecuteReader();
             if (!sqlDataReader.Read()) { throw new Exception("User Does Not Exist"); }
@@ -35,13 +35,13 @@ namespace Elite_ATM_Software
             while (reader.Read())
             {
                 if(!(txtPassword.Text == reader["Password"].ToString())) { throw new Exception("Incorrect Login Credentials"); } 
-                user.Id = (int)reader["ID"];
-                user.FirstName = reader["Firstname"].ToString();
-                user.LastName = reader["Lastname"].ToString();
-                user.Email = reader["Email"].ToString();
+                UserTracker.currentUser.Id = (int)reader["ID"];
+                UserTracker.currentUser.FirstName = reader["Firstname"].ToString();
+                UserTracker.currentUser.LastName = reader["Lastname"].ToString();
+                UserTracker.currentUser.Email = reader["Email"].ToString();
                 
             }
-                FrmHome home = new FrmHome(user);
+                FrmHome home = new FrmHome();
                 home.MdiParent = this.MdiParent;
                 home.Show();
                 this.Close();

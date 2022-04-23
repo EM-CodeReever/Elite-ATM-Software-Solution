@@ -14,15 +14,8 @@ namespace Elite_ATM_Software
 {
     public partial class FrmCreateAccount : Form
     {
-        User user = new User();
         public FrmCreateAccount()
         {
-            InitializeComponent();
-        }
-
-        public FrmCreateAccount(User u)
-        {
-            user = u;
             InitializeComponent();
         }
         private void btnOpenAccount_Click(object sender, EventArgs e)
@@ -34,16 +27,16 @@ namespace Elite_ATM_Software
                 {
                     if (rbBusiness.Checked)
                     {
-                        user.UserAccount = new Business();
+                        UserTracker.currentUser.UserAccount = new Business();
                     }
                     else if (rbPersonal.Checked)
                     {
                         if (cbPersonalAccountType.Text == "Savings")
                         {
-                            user.UserAccount = new Savings();
+                            UserTracker.currentUser.UserAccount = new Savings();
                         }
                         else if (cbPersonalAccountType.Text == "") { throw new Exception("Select a Chequing or Savings Account"); }
-                        else { user.UserAccount = new Chequing(); }
+                        else { UserTracker.currentUser.UserAccount = new Chequing(); }
                     }
                 }
                 else
@@ -56,18 +49,18 @@ namespace Elite_ATM_Software
                 }
                 else
                 {
-                    user.UserAccount.Currency = cbCurrency.Text;
-                    user.UserAccount.Balance = 0.0f;
+                    UserTracker.currentUser.UserAccount.Currency = cbCurrency.Text;
+                    UserTracker.currentUser.UserAccount.Balance = 0.0f;
                 }
                 SqlConnection connection = new SqlConnection(Utilities.GetConnectionString());
                 connection.Open();
-                SqlCommand command = new SqlCommand($"INSERT INTO [Accounts] (Type, Balance, Currency, UserID) VALUES ('{user.UserAccount.GetType().Name}',{0.0},'{user.UserAccount.Currency}','{user.Id}')", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO [Account] (Type, Balance, Currency, UserID) VALUES ('{UserTracker.currentUser.UserAccount.GetType().Name}',{0.0},'{UserTracker.currentUser.UserAccount.Currency}','{UserTracker.currentUser.Id}')", connection);
                 int i = command.ExecuteNonQuery();
                 if (i != 0)
                 {
                     MessageBox.Show("Account Created Successfully!");
                     connection.Close();
-                    FrmHome frmHome = new FrmHome(user);
+                    FrmHome frmHome = new FrmHome();
                     frmHome.MdiParent = this.MdiParent;
                     frmHome.Show();
                     this.Close();

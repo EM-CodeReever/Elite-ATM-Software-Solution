@@ -46,7 +46,7 @@ namespace Elite_ATM_Software
             }
             SqlConnection connection = new SqlConnection(Utilities.GetConnectionString());
             connection.Open();
-            SqlCommand command = new SqlCommand($"INSERT INTO [Users] (FirstName, LastName, Email, Password) VALUES ('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password }')", connection);
+            SqlCommand command = new SqlCommand($"INSERT INTO [User] (FirstName, LastName, Email, Password) VALUES ('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password }')", connection);
             int i = command.ExecuteNonQuery();
             if (i != 0)
             {

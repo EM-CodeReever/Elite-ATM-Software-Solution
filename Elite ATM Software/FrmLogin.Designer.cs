@@ -37,12 +37,12 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblLogin = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblloginwith = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblNotaUser = new System.Windows.Forms.Label();
             this.lnkCreateAccount = new System.Windows.Forms.LinkLabel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblloginwith = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             // 
             this.lblEliteATM.AutoSize = true;
             this.lblEliteATM.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliteATM.Location = new System.Drawing.Point(229, 76);
+            this.lblEliteATM.Location = new System.Drawing.Point(223, 9);
             this.lblEliteATM.Name = "lblEliteATM";
             this.lblEliteATM.Size = new System.Drawing.Size(173, 33);
             this.lblEliteATM.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             this.lblSubTitle.AutoSize = true;
             this.lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTitle.Location = new System.Drawing.Point(201, 109);
+            this.lblSubTitle.Location = new System.Drawing.Point(196, 51);
             this.lblSubTitle.Name = "lblSubTitle";
             this.lblSubTitle.Size = new System.Drawing.Size(225, 20);
             this.lblSubTitle.TabIndex = 1;
@@ -105,7 +105,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(477, 398);
+            this.btnLogin.Location = new System.Drawing.Point(484, 315);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(95, 29);
             this.btnLogin.TabIndex = 6;
@@ -116,10 +116,10 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(52, 165);
+            this.lblLogin.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(272, 80);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(73, 29);
+            this.lblLogin.Size = new System.Drawing.Size(66, 29);
             this.lblLogin.TabIndex = 7;
             this.lblLogin.Text = "Login";
             // 
@@ -134,37 +134,28 @@
             this.panel1.Controls.Add(this.lblUserID);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtUserID);
-            this.panel1.Location = new System.Drawing.Point(46, 197);
+            this.panel1.Location = new System.Drawing.Point(53, 112);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(526, 175);
             this.panel1.TabIndex = 8;
             // 
-            // lblNotaUser
+            // lblloginwith
             // 
-            this.lblNotaUser.AutoSize = true;
-            this.lblNotaUser.Location = new System.Drawing.Point(48, 385);
-            this.lblNotaUser.Name = "lblNotaUser";
-            this.lblNotaUser.Size = new System.Drawing.Size(62, 13);
-            this.lblNotaUser.TabIndex = 9;
-            this.lblNotaUser.Text = "Not a user?";
+            this.lblloginwith.AutoSize = true;
+            this.lblloginwith.Location = new System.Drawing.Point(372, 34);
+            this.lblloginwith.Name = "lblloginwith";
+            this.lblloginwith.Size = new System.Drawing.Size(135, 13);
+            this.lblloginwith.TabIndex = 9;
+            this.lblloginwith.Text = "*Login with UserID or Email";
             // 
-            // lnkCreateAccount
+            // label2
             // 
-            this.lnkCreateAccount.AutoSize = true;
-            this.lnkCreateAccount.Location = new System.Drawing.Point(107, 385);
-            this.lnkCreateAccount.Name = "lnkCreateAccount";
-            this.lnkCreateAccount.Size = new System.Drawing.Size(97, 13);
-            this.lnkCreateAccount.TabIndex = 10;
-            this.lnkCreateAccount.TabStop = true;
-            this.lnkCreateAccount.Text = "Create An Account";
-            this.lnkCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkCreateAccount_LinkClicked);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(97, 91);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(226, 20);
-            this.txtEmail.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(194, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "OR";
             // 
             // lblEmail
             // 
@@ -176,29 +167,38 @@
             this.lblEmail.TabIndex = 7;
             this.lblEmail.Text = "Email";
             // 
-            // label2
+            // txtEmail
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(194, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "OR";
+            this.txtEmail.Location = new System.Drawing.Point(97, 91);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(226, 20);
+            this.txtEmail.TabIndex = 6;
             // 
-            // lblloginwith
+            // lblNotaUser
             // 
-            this.lblloginwith.AutoSize = true;
-            this.lblloginwith.Location = new System.Drawing.Point(372, 34);
-            this.lblloginwith.Name = "lblloginwith";
-            this.lblloginwith.Size = new System.Drawing.Size(135, 13);
-            this.lblloginwith.TabIndex = 9;
-            this.lblloginwith.Text = "*Login with UserID or Email";
+            this.lblNotaUser.AutoSize = true;
+            this.lblNotaUser.Location = new System.Drawing.Point(50, 299);
+            this.lblNotaUser.Name = "lblNotaUser";
+            this.lblNotaUser.Size = new System.Drawing.Size(62, 13);
+            this.lblNotaUser.TabIndex = 9;
+            this.lblNotaUser.Text = "Not a user?";
+            // 
+            // lnkCreateAccount
+            // 
+            this.lnkCreateAccount.AutoSize = true;
+            this.lnkCreateAccount.Location = new System.Drawing.Point(109, 299);
+            this.lnkCreateAccount.Name = "lnkCreateAccount";
+            this.lnkCreateAccount.Size = new System.Drawing.Size(97, 13);
+            this.lnkCreateAccount.TabIndex = 10;
+            this.lnkCreateAccount.TabStop = true;
+            this.lnkCreateAccount.Text = "Create An Account";
+            this.lnkCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkCreateAccount_LinkClicked);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 456);
+            this.ClientSize = new System.Drawing.Size(617, 353);
             this.Controls.Add(this.lnkCreateAccount);
             this.Controls.Add(this.lblNotaUser);
             this.Controls.Add(this.lblLogin);
